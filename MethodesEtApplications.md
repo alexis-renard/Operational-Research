@@ -102,8 +102,14 @@ Un stable d'un graphe est un sous ensemble s'il n'existe pas d'arc reliant deux 
 ### Noyau
 
 K, sous ensemble de X est dit noyau si :
-* tout sommet de K a ses successeurs en dehors de K
-* tout sommet en dehors de K a au moins un de ses successeurs dans K
+* tout sommet de K a ses successeurs en dehors de K.
+* tout sommet en dehors de K a au moins un de ses successeurs dans K.
+
+#### Propriétés
+* Un graphe sans circuit a exactement un noyau.
+
+#### Tips
+* Pour trouver un noyau, regarder les sommets qui ont le plus de predecesseurs (pour respecter la deuxième condition).
 
 ### Clique
 
@@ -167,6 +173,8 @@ ou encore de manière compacte, avec $\alpha$ de taille $n+1$:
 | :-: | :-: | :-: | :-: | :-: | :-: |
 
 *Remarque : pour $\alpha$ un numéro de noeud est associé au premier successeur de ce noeud*
+
+
 ## Quelques formules à savoir
 
 * Nombre d'arrêtes d'un graphe non orienté complet sans boucle de $n$ sommets : $\frac{n(n-1)}{2}$
@@ -213,7 +221,7 @@ On peut le prouver par récurrence qu'à chaque itération :
 
 ###### Tout sommet atteint est descendant de $i_0$
 
-Does someone have a good preuve ?
+Un sommet atteint $i$ est un sommet dans l'arborescence, qui commence à $i_0$. Ce qui signifie bien qu'il existe un chemin dans l'arborescence de i0 à $i$. On dira donc que $i$ est un descendant de i0.
 
 #### Fin de l'algorithme
 Prouver la fin de l'algo revient à prouver que la boucle principale se termine. Dans celle ci, pour chaque sommet $i$, on fait $d^+(i)$ analyse d'un successeur. On aura donc :
