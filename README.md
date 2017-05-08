@@ -5,5 +5,7 @@ The .md files had been edited with atom and :
 
 Both are required to render all mathematics formulas that I used *(surrounded by $)*
 
+**PDF file is coming**
+
 ---
 Enjoy & Contribute :rocket:
