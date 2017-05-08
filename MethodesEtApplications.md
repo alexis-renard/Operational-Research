@@ -9,15 +9,21 @@ On notera $n$ le nombre de sommet(s) du graphe, et $m$ le nombre d'arc(s).
 
 ### Les ensembles d'arcs
 
-**Ensemble des arcs incidents** : $U(A)$  
-Degré : $d(A)$  
-**Ensemble des predecesseurs** : $U^-(A)$  
-Degré : $d^-(A)$  
-**Ensemble des successeurs** : $U^+(A)$  
-Degré : $d^+(A)$
+Ensemble des **arcs incidents** de $i$ : $U(i)$  
+Degré : $d(i)$  
+Ensemble des **predecesseurs** de $i$ : $U^-(i)$  
+Degré : $d^-(i)$  
+Ensemble des **successeurs** de $i$ : $U^+(i)$  
+Degré : $d^+(i)$
 
-### Chaine
-Une chaine est un chemin dont l'extremité initiale se confond avec l'extremité terminale.
+### Chemin et chaîne
+Un **chemin** est suite d'un à $m$ arcs qui relient un sommet $i$ à un sommet $j$ (il y a donc un sens, il sera dit *orienté*).  
+Une **chaine** est un chemin non orienté.
+
+### Circuit et cycle
+
+Un **circuit** est un chemin dont l'extremité initiale se confond avec l'extremité terminale.  
+Un **cycle** est un circuit non orienté.
 
 ### Chemin simple mais pas élémentaire
 Un chemin est **simple** lorsqu'il ne passe pas deux fois par le **même arc**.  
@@ -110,6 +116,7 @@ K, sous ensemble de X est dit noyau si :
 
 #### Tips
 * Pour trouver un noyau, regarder les sommets qui ont le plus de predecesseurs (pour respecter la deuxième condition).
+* Une fois ceci fait, regarder dans ces sommets ceux qui ont le moins de liens directs entre eux.
 
 ### Clique
 
@@ -188,9 +195,24 @@ Si on a un long exercice, souvent les dernières questions sont simplement des c
 
 ------------------------
 
-## Algorithmes
+# Algorithmes
 
-### Recherche des descendants d'un sommet
+## BIPAR
+
+#### Principe général
+*todo*
+
+#### Propriétés
+
+###### Structures necessaires
+* Tableau des couleurs
+* Pile/File pour garder une trace des sommets déjà examinés
+
+##### Complexité en $O(m)$
+* $O(n)$ à l'initialisation.
+* complexité de $O(n+m)$ dans notre boucle principale
+
+## Recherche des descendants d'un sommet
 
 #### Principe général
 
@@ -208,22 +230,47 @@ On a donc une complexité de $O(n)$ à l'initialisation (en supposant que $d^+(i
 #### La boucle principale
 On va itérer tant qu'on a pas parcouru tous les successeurs de $i$. Dans le pire des cas, on va faire $n$ fermetures de sommets ($n_i=0$), et $m$ analyses d'un successeur de $i$ ($n_i\ne0$).
 
-On a donc une complexité de $O(n+m)$ dans notre boucle principale.
-
-##### Propriétés
-
-###### Construction d'une arborescence de $i_0$
-
-La fonction $f$ défini une arborescence $\Leftrightarrow$ $G^f$ est connexe.
-On peut le prouver par récurrence qu'à chaque itération :
-* soit on rajoute un arc à l'arborescence, donc un graphe connexe avec un sommet de plus
-* soit on ne change pas le graphe
-
-###### Tout sommet atteint est descendant de $i_0$
-
-Un sommet atteint $i$ est un sommet dans l'arborescence, qui commence à $i_0$. Ce qui signifie bien qu'il existe un chemin dans l'arborescence de i0 à $i$. On dira donc que $i$ est un descendant de i0.
 
 #### Fin de l'algorithme
 Prouver la fin de l'algo revient à prouver que la boucle principale se termine. Dans celle ci, pour chaque sommet $i$, on fait $d^+(i)$ analyse d'un successeur. On aura donc :
 $\sum_{i=1}^{n}d^+(i)=m$ analyses.
 Ainsi, le nombre d'itérations de la boucle principale est majoré par $(n+m)$.
+
+#### Propriétés
+
+##### Construction d'une arborescence de $i_0$
+La fonction $f$ défini une arborescence $\Leftrightarrow$ $G^f$ est connexe.
+On peut le prouver par récurrence qu'à chaque itération :
+* soit on rajoute un arc à l'arborescence, donc un graphe connexe avec un sommet de plus
+* soit on ne change pas le graphe
+
+##### Tout sommet atteint est descendant de $i_0$
+Un sommet atteint $i$ est un sommet dans l'arborescence, qui commence à $i_0$. Ce qui signifie bien qu'il existe un chemin dans l'arborescence de i0 à $i$. On dira donc que $i$ est un descendant de i0.
+
+
+##### Complexité en $O(m)$
+* $O(n)$ à l'initialisation.
+* complexité de $O(n+m)$ dans notre boucle principale
+
+
+## Noyau
+
+#### Principe général
+On numérote de façon inverse les sommets de notre graphe $G$ (c'est à dire que chaque numéro de sommet vérifie : $\forall(i,j)\in U\Rightarrow i>j$ ). On colorie en rouge le sommet 1, et on parcours chacun des sommets $i$ dans l'ordre pour les colorer :
+* Si un des successeurs de $i$ est rouge, colorer $i$ en vert
+* Sinon colorer $i$ en rouge
+
+Les sommets rouges formeront un noyau de $G$.
+
+
+
+#### Propriétés
+
+##### Structures necessaires
+* Tableau des couleurs (de taile $n$)
+* File des successeurs ($\alpha,\beta$)
+
+##### Complexité en $O(m)$
+
+* Avec la file des succeseurs on peut numéroter en $O(n)$ *à vérifier j'ai O(m) sur ma feuille mais ça me parait bizarre)* donc numéroter inversement en $O(n+1)$.
+* Pour la boucle principale, on effectue $(n-1)$ itérations, pour lesquelles on examine $U^+(i)$, tous les successeurs de $i$ : complexité en $O(m+n)$
