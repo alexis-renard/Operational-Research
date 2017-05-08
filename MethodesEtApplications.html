@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>MethodesEtApplications</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: [],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    showMathMenu: false
+  });
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js">
+</script>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(171, 178, 191); overflow: auto; background-color: rgb(40, 44, 52); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(124, 135, 156); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 139, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(124, 135, 156); border-color: rgb(75, 83, 98); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(75, 83, 98); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(75, 83, 98); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(58, 63, 75); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(49, 54, 63); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(75, 83, 98) rgb(75, 83, 98) rgb(62, 68, 81); background-color: rgb(58, 63, 75); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top: 1px solid rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
+.markdown-preview del { text-decoration: none; position: relative; }
+.markdown-preview del::after { border-bottom: 1px solid black; content: ""; left: 0px; position: absolute; right: 0px; top: 50%; }
+.markdown-preview .flash { animation: flash 1s ease-out 1; outline: rgba(255, 0, 0, 0) solid 1px; }
+.markdown-preview .flash:not(li) { display: block; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+pre.editor-colors {
+  background-color: #282c34;
+  color: #abb2bf;
+}
+pre.editor-colors .line.cursor-line {
+  background-color: rgba(153, 187, 255, 0.04);
+}
+pre.editor-colors .invisible {
+  color: #abb2bf;
+}
+pre.editor-colors .cursor {
+  border-left: 2px solid #528bff;
+}
+pre.editor-colors .selection .region {
+  background-color: #3e4451;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-bottom: 1px solid #528bff;
+  box-sizing: border-box;
+}
+pre.editor-colors .invisible-character {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .indent-guide {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .wrap-guide {
+  background-color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .find-result .region.region.region,
+pre.editor-colors .current-result .region.region.region {
+  border-radius: 2px;
+  background-color: rgba(82, 139, 255, 0.24);
+  transition: border-color 0.4s;
+}
+pre.editor-colors .find-result .region.region.region {
+  border: 2px solid transparent;
+}
+pre.editor-colors .current-result .region.region.region {
+  border: 2px solid #528bff;
+  transition-duration: .1s;
+}
+pre.editor-colors .gutter .line-number {
+  color: #636d83;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  color: #abb2bf;
+  background-color: #2c313a;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right {
+  color: #abb2bf;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(224, 82, 82, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+pre.editor-colors .fold-marker:after {
+  color: #abb2bf;
+}
+.syntax--comment {
+  color: #5c6370;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #5c6370;
+}
+.syntax--entity.syntax--name.syntax--type {
+  color: #e5c07b;
+}
+.syntax--entity.syntax--other.syntax--inherited-class {
+  color: #98c379;
+}
+.syntax--keyword {
+  color: #c678dd;
+}
+.syntax--keyword.syntax--control {
+  color: #c678dd;
+}
+.syntax--keyword.syntax--operator {
+  color: #abb2bf;
+}
+.syntax--keyword.syntax--other.syntax--special-method {
+  color: #61afef;
+}
+.syntax--keyword.syntax--other.syntax--unit {
+  color: #d19a66;
+}
+.syntax--storage {
+  color: #c678dd;
+}
+.syntax--storage.syntax--type.syntax--annotation,
+.syntax--storage.syntax--type.syntax--primitive {
+  color: #c678dd;
+}
+.syntax--storage.syntax--modifier.syntax--package,
+.syntax--storage.syntax--modifier.syntax--import {
+  color: #abb2bf;
+}
+.syntax--constant {
+  color: #d19a66;
+}
+.syntax--constant.syntax--variable {
+  color: #d19a66;
+}
+.syntax--constant.syntax--character.syntax--escape {
+  color: #56b6c2;
+}
+.syntax--constant.syntax--numeric {
+  color: #d19a66;
+}
+.syntax--constant.syntax--other.syntax--color {
+  color: #56b6c2;
+}
+.syntax--constant.syntax--other.syntax--symbol {
+  color: #56b6c2;
+}
+.syntax--variable {
+  color: #e06c75;
+}
+.syntax--variable.syntax--interpolation {
+  color: #be5046;
+}
+.syntax--variable.syntax--parameter {
+  color: #abb2bf;
+}
+.syntax--string {
+  color: #98c379;
+}
+.syntax--string.syntax--regexp {
+  color: #56b6c2;
+}
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded {
+  color: #e5c07b;
+}
+.syntax--string.syntax--other.syntax--link {
+  color: #e06c75;
+}
+.syntax--punctuation.syntax--definition.syntax--comment {
+  color: #5c6370;
+}
+.syntax--punctuation.syntax--definition.syntax--method-parameters,
+.syntax--punctuation.syntax--definition.syntax--function-parameters,
+.syntax--punctuation.syntax--definition.syntax--parameters,
+.syntax--punctuation.syntax--definition.syntax--separator,
+.syntax--punctuation.syntax--definition.syntax--seperator,
+.syntax--punctuation.syntax--definition.syntax--array {
+  color: #abb2bf;
+}
+.syntax--punctuation.syntax--definition.syntax--heading,
+.syntax--punctuation.syntax--definition.syntax--identity {
+  color: #61afef;
+}
+.syntax--punctuation.syntax--definition.syntax--bold {
+  color: #e5c07b;
+  font-weight: bold;
+}
+.syntax--punctuation.syntax--definition.syntax--italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.syntax--punctuation.syntax--section.syntax--embedded {
+  color: #be5046;
+}
+.syntax--punctuation.syntax--section.syntax--method,
+.syntax--punctuation.syntax--section.syntax--class,
+.syntax--punctuation.syntax--section.syntax--inner-class {
+  color: #abb2bf;
+}
+.syntax--support.syntax--class {
+  color: #e5c07b;
+}
+.syntax--support.syntax--type {
+  color: #56b6c2;
+}
+.syntax--support.syntax--function {
+  color: #56b6c2;
+}
+.syntax--support.syntax--function.syntax--any-method {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--function {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #e5c07b;
+}
+.syntax--entity.syntax--name.syntax--section {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--tag {
+  color: #e06c75;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #d19a66;
+}
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--id {
+  color: #61afef;
+}
+.syntax--meta.syntax--class {
+  color: #e5c07b;
+}
+.syntax--meta.syntax--class.syntax--body {
+  color: #abb2bf;
+}
+.syntax--meta.syntax--method-call,
+.syntax--meta.syntax--method {
+  color: #abb2bf;
+}
+.syntax--meta.syntax--definition.syntax--variable {
+  color: #e06c75;
+}
+.syntax--meta.syntax--link {
+  color: #d19a66;
+}
+.syntax--meta.syntax--require {
+  color: #61afef;
+}
+.syntax--meta.syntax--selector {
+  color: #c678dd;
+}
+.syntax--meta.syntax--separator {
+  background-color: #373b41;
+  color: #abb2bf;
+}
+.syntax--meta.syntax--tag {
+  color: #abb2bf;
+}
+.syntax--underline {
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #abb2bf;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #523d14 !important;
+  background-color: #e0c285 !important;
+}
+.syntax--invalid.syntax--illegal {
+  color: #ffffff !important;
+  background-color: #e05252 !important;
+}
+.syntax--markup.syntax--bold {
+  color: #d19a66;
+  font-weight: bold;
+}
+.syntax--markup.syntax--changed {
+  color: #c678dd;
+}
+.syntax--markup.syntax--deleted {
+  color: #e06c75;
+}
+.syntax--markup.syntax--italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #e06c75;
+}
+.syntax--markup.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+  color: #61afef;
+}
+.syntax--markup.syntax--link {
+  color: #56b6c2;
+}
+.syntax--markup.syntax--inserted {
+  color: #98c379;
+}
+.syntax--markup.syntax--quote {
+  color: #d19a66;
+}
+.syntax--markup.syntax--raw {
+  color: #98c379;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--cpp .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--cs .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--css .syntax--property-name,
+.syntax--source.syntax--css .syntax--property-value {
+  color: #828997;
+}
+.syntax--source.syntax--css .syntax--property-name.syntax--support,
+.syntax--source.syntax--css .syntax--property-value.syntax--support {
+  color: #abb2bf;
+}
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+}
+.syntax--source.syntax--gfm .syntax--link .syntax--entity {
+  color: #61afef;
+}
+.syntax--source.syntax--go .syntax--storage.syntax--type.syntax--string {
+  color: #c678dd;
+}
+.syntax--source.syntax--ini .syntax--keyword.syntax--other.syntax--definition.syntax--ini {
+  color: #e06c75;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #e5c07b;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #e5c07b;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator.syntax--instanceof {
+  color: #c678dd;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair {
+  color: #e06c75;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair > .syntax--punctuation {
+  color: #abb2bf;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator {
+  color: #56b6c2;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--delete,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--in,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--of,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--instanceof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--typeof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--void {
+  color: #c678dd;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json {
+  color: #e06c75;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation.syntax--string {
+  color: #e06c75;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation {
+  color: #98c379;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--constant.syntax--language.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--constant.syntax--language.syntax--json {
+  color: #56b6c2;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--other.syntax--symbol > .syntax--punctuation {
+  color: inherit;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical.syntax--python {
+  color: #c678dd;
+}
+.syntax--source.syntax--python .syntax--variable.syntax--parameter {
+  color: #d19a66;
+}
+</style>
+  </head>
+  <body class='markdown-preview'><h1>A retenir !</h1>
+<h2>Définitions et méthodologie</h2>
+<h3>Généralité</h3>
+<p>On notera <span class="math"><script type="math/tex">n</script></span> le nombre de sommet(s) du graphe, et <span class="math"><script type="math/tex">m</script></span> le nombre d’arc(s).</p>
+<h3>Les ensembles d’arcs</h3>
+<p><strong>Ensemble des arcs incidents</strong> : <span class="math"><script type="math/tex">U(A)</script></span><br>
+Degré : <span class="math"><script type="math/tex">d(A)</script></span><br>
+<strong>Ensemble des predecesseurs</strong> : <span class="math"><script type="math/tex">U^-(A)</script></span><br>
+Degré : <span class="math"><script type="math/tex">d^-(A)</script></span><br>
+<strong>Ensemble des successeurs</strong> : <span class="math"><script type="math/tex">U^+(A)</script></span><br>
+Degré : <span class="math"><script type="math/tex">d^+(A)</script></span></p>
+<h3>Chaine</h3>
+<p>Une chaine est un chemin dont l’extremité initiale se confond avec l’extremité terminale.</p>
+<h3>Chemin simple mais pas élémentaire</h3>
+<p>Un chemin est <strong>simple</strong> lorsqu’il ne passe pas deux fois par le <strong>même arc</strong>.<br>
+Un chemin est <strong>élémentaire</strong> lorsqu’il ne passe pas deux fois par le <strong>même sommet</strong>.<br>
+Un chemin simple mais pas élémentaire est donc un chemin passant une seule fois par les arcs, mais qui revient au moins une fois sur un sommet déjà visité.</p>
+<p><em>Remarque : cette notion est généralisable pour une chaine ou un cycle.</em></p>
+<h3>Lemme de König</h3>
+<blockquote>
+<p>On peut toujours extraire d’un chemin, une chaine ou un cycle allant de i à j, un chemin, chaine ou cycle élémentaire allant de i à j.
+— <a href="https://fr.wikipedia.org/wiki/D%C3%A9nes_K%C5%91nig">König</a></p>
+</blockquote>
+<h3>Chemin Hamiltonien</h3>
+<p>Une chemin est <strong>Hamiltonien</strong> s’il passe <em>une et une seule fois</em> par <em>tous</em> les sommets du graphe.</p>
+<h3>Couplage</h3>
+<p>Un couplage est un ensemble d’arcs tels que deux arcs de cet ensemble n’ont pas d’extremité commune.</p>
+<h3>Connexité</h3>
+<h4>Types de connexité</h4>
+<ul>
+<li>Simple : Il existe une chaine entre les sommets i et j</li>
+<li>Forte : Il existe un circuit passant par i et j</li>
+</ul>
+<p>Une composante fortement connexe <em>(cfc)</em> est un ensemble des sommets à la fois descendants et ascendants les un des autres.</p>
+<p><em>Remarque méthodologique : pendant la recherche des cfc, si un sommet fait parti d’une composante, alors il n’est plus à traiter ensuite.</em></p>
+<h4>Connexité et graphe réduit</h4>
+<p>Une fois que l’on a calculé toutes les <em>cfc</em> d’un graphe, on peut construire son <strong>graphe réduit</strong>. Ce dernier va relier toutes les cfc d’un groupe.</p>
+<h5>Graphe réduit et graphe planaire</h5>
+<p>A partir de ce dernier, on peut essayer de déduire si le graphe initial était <strong>planaire</strong> <em>(voir plus bas)</em>.</p>
+<h5>Nombre de composantes connexes</h5>
+<p>On note <span class="math"><script type="math/tex">C(G_i)</script></span> le nombre de composantes connexes de <span class="math"><script type="math/tex">G_i</script></span>.
+On a la propriété suivante :</p>
+<p><span class="math"><script type="math/tex">C(G_i)=\begin{cases}C(G_{i-1})\\C(G_{i-1})-1\end{cases}</script></span></p>
+<p>Dans le premier cas, on enleve un cycle à une composante connexe. Dans le second, on détache deux composantes connexes</p>
+<h3>Graphe planaire</h3>
+<p>Graphe dont aucun arc ne s’entrecoupe.</p>
+<h3>Graphe biparti, graphe bicolorable</h3>
+<p>Un graphe biparti vérifie que l’ensemble X de ses sommets peut être partitionné en 2 parties Y et Y’. Y et Y’ sont tels que tout arc de X a une extremité dans Y et l’autre dans Y’.</p>
+<p>Un graphe est bicolorable si tous ses sommets peuvent être colorés selon deux couleurs, chaque somme relié étant d’une couleur différente. (Les deux couleurs étant le rouge et le vert, le sommet 1 étant colorié par défaut en rouge)</p>
+<p>Graphe biparti <span class="math"><script type="math/tex">\Leftrightarrow</script></span> Graphe bicolorable.</p>
+<p><strong>Propriétés :</strong></p>
+<ul>
+<li>Ne contient pas de cycle de longueur impaire <em>(démonstration dans le TD4)</em></li>
+<li>Pour chaque sommet rouge <em>(resp. vert)</em>, il en existe un chemin de longueur paire <em>(resp. impaires)</em> depuis la racine.</li>
+<li>la connexité assure la coloration de tous les sommets lors de l’application de l’algorithme BIPAR.</li>
+</ul>
+<p><strong>Généralisation</strong> :</p>
+<ul>
+<li>Pour tester si un graphe quelconque (non necessairement connexe) est biparti, on appliquera l’algo BIPAR sur chaque composante connexe et on fera un <span class="math"><script type="math/tex">\land</script></span> sur tous les résultats de l’algo obtenus.</li>
+</ul>
+<h4>Le problème de coloration minimale d’un graphe quelconque</h4>
+<p>C’est un problème dit <strong>NP-complet</strong> : nous n’avons pas encore trouvé d’algorithme polynomial pour le résoudre.</p>
+<h3>Arbre</h3>
+<h4>Définition</h4>
+<p>Un arbre est un graphe connexe sans cycle.</p>
+<p>Arbre <span class="math"><script type="math/tex">\Leftrightarrow</script></span> <span class="math"><script type="math/tex">\exists</script></span> <em>une et une seule</em> chaîne élémentaire entre chaque paire de sommets.</p>
+<h4>Démonstration rapide</h4>
+<ul>
+<li>Si le graphe est connexe, alors <span class="math"><script type="math/tex">\forall</script></span> sommet <span class="math"><script type="math/tex">\exists</script></span> une chaine élémentaire.</li>
+<li>Si le graphe est sans cycle, alors cette chaine est unique.</li>
+</ul>
+<p>Il existe donc une chaine, unique, entre chaque paire de sommets.</p>
+<h3>Stable d’un graphe</h3>
+<p>Un stable d’un graphe est un sous ensemble s’il n’existe pas d’arc reliant deux sommets de S.</p>
+<h3>Noyau</h3>
+<p>K, sous ensemble de X est dit noyau si :</p>
+<ul>
+<li>tout sommet de K a ses successeurs en dehors de K</li>
+<li>tout sommet en dehors de K a au moins un de ses successeurs dans K</li>
+</ul>
+<h3>Clique</h3>
+<p>Une clique est un graphe complet sans boucles. Deux types de cliques :</p>
+<ul>
+<li>Graphe orienté : <span class="math"><script type="math/tex">n(n-1)</script></span> arcs</li>
+<li>Graphe non orienté : <span class="math"><script type="math/tex">\frac{n(n-1)}{2}</script></span> arrêtes.</li>
+</ul>
+<p><em>Remarque : seules les cliques de cardinalité 1,2,3 et 4 sont planaires.</em></p>
+<h2>Coder un graphe en machine</h2>
+<h3>Matrice d’adjacence</h3>
+<p>On fait un tableau de taille n, associant 1 à la case (i,j) lorsque le sommet i admet comme successeur le sommet j, 0 sinon.
+2 types d’adjacence :</p>
+<ul>
+<li>Indirecte : chaine (non orienté)</li>
+<li>Directe : chemin (orienté)</li>
+</ul>
+<h3>Exemple</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>1</strong></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2</strong></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3</strong></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>4</strong></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>5</strong></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<h3>File des successeurs</h3>
+<h4>Les tableaux <span class="math"><script type="math/tex">\alpha</script></span> et <span class="math"><script type="math/tex">\beta</script></span></h4>
+<p>Méthode très utilisé car elle permet d’accéder en <span class="math"><script type="math/tex">O(1)</script></span> au successeurs d’un sommet.
+On part de la matrice d’adjacence. Pour chaque ligne on met à la suite dans le tableau
+<span class="math"><script type="math/tex">\beta</script></span> ses successeurs. <span class="math"><script type="math/tex">\beta</script></span> est de taille <span class="math"><script type="math/tex">m</script></span>.</p>
+<ul>
+<li><span class="math"><script type="math/tex">\beta</script></span> :</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">i=1</th>
+<th style="text-align:center">i=2</th>
+<th style="text-align:center">i=3</th>
+<th style="text-align:center">i=4</th>
+<th style="text-align:center">i=5</th>
+<th style="text-align:center">i=6</th>
+<th style="text-align:center">i=7</th>
+<th style="text-align:center">i=8</th>
+<th style="text-align:center">i=9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">/ 1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4 \</td>
+<td style="text-align:center">/ 1</td>
+<td style="text-align:center">3 \</td>
+<td style="text-align:center">/ 5 \</td>
+<td style="text-align:center">/ 3</td>
+<td style="text-align:center">4 \</td>
+</tr>
+</tbody>
+</table>
+<p><em>Remarque : les numéros entre “/ \” correspondent aux successeurs d’un même sommet.
+Le sommet 3 n’en ayant aucun, il n’est alors pas représenté.</em></p>
+<p>Pour pouvoir reconnaitre les groupes à l’intérieur du tableau <span class="math"><script type="math/tex">\beta</script></span>, on va se servir des tableaux <span class="math"><script type="math/tex">\alpha_1</script></span> (indice i de début de groupe) et <span class="math"><script type="math/tex">\alpha_2</script></span> (indice i de fin de groupe). Les <span class="math"><script type="math/tex">\alpha_i</script></span> sont de taille <span class="math"><script type="math/tex">n</script></span>.</p>
+<ul>
+<li><span class="math"><script type="math/tex">\alpha_1</script></span> :</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">1</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<ul>
+<li><span class="math"><script type="math/tex">\alpha_2</script></span> :</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">4</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">9</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<p>ou encore de manière compacte, avec <span class="math"><script type="math/tex">\alpha</script></span> de taille <span class="math"><script type="math/tex">n+1</script></span>:</p>
+<ul>
+<li><span class="math"><script type="math/tex">\alpha</script></span> :</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">1</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">10</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<p><em>Remarque : pour <span class="math"><script type="math/tex">\alpha</script></span> un numéro de noeud est associé au premier successeur de ce noeud</em></p>
+<h2>Quelques formules à savoir</h2>
+<ul>
+<li>Nombre d’arrêtes d’un graphe non orienté complet sans boucle de <span class="math"><script type="math/tex">n</script></span> sommets : <span class="math"><script type="math/tex">\frac{n(n-1)}{2}</script></span></li>
+<li>Nombre de graphes orientés à <span class="math"><script type="math/tex">n</script></span> sommets : <span class="math"><script type="math/tex">2^{n^n}</script></span></li>
+<li>Un graphe connexe a au moins <span class="math"><script type="math/tex">n-1</script></span> arrêtes <em>(démonstration dans le TD4)</em></li>
+<li>Un graphe sans cycle a au plus <span class="math"><script type="math/tex">n-1</script></span> arrêtes <em>(démonstration dans le TD4)</em></li>
+</ul>
+<h2>Some other tips</h2>
+<p>Si on a un long exercice, souvent les dernières questions sont simplement des conséquences des autres. Par exemple on peut nous demander de prouver une condition nécessaire, puis la suffisante et en fin d’exo l’équivalence <em>(cf la deuxième partie du TD5)</em>.</p>
+<hr>
+<h2>Algorithmes</h2>
+<h3>Recherche des descendants d’un sommet</h3>
+<h4>Principe général</h4>
+<p>Le sommet pour lequel on veut chercher les descendants est le sommet <span class="math"><script type="math/tex">i_0</script></span>.
+A chaque sommet <span class="math"><script type="math/tex">i</script></span>, on va associer à chaque itération un <span class="math"><script type="math/tex">n(i)</script></span> et un <span class="math"><script type="math/tex">p(i)</script></span>. <span class="math"><script type="math/tex">n(i)</script></span> représentera le nombre de sommets qui n’ont pas encore été traités, et <span class="math"><script type="math/tex">p(i)</script></span> le nombre de d’arcs entre <span class="math"><script type="math/tex">i_0</script></span> et <span class="math"><script type="math/tex">i</script></span>.<br>
+En fin d’algorithme, les <span class="math"><script type="math/tex">n(i)</script></span> doivent être à 0 (tous les sommets auront été traités) et les <span class="math"><script type="math/tex">p(i)</script></span> avec le nombre d’arc qu’il faut pour rejoindre le sommet <span class="math"><script type="math/tex">i</script></span> à partir du sommet <span class="math"><script type="math/tex">i_0</script></span> (donc de 0 à n, 0 indiquant que <span class="math"><script type="math/tex">i</script></span> n’est pas accessible à partir de <span class="math"><script type="math/tex">i_0</script></span>).</p>
+<h4>L’initialisation</h4>
+<p>Pour chacun des <span class="math"><script type="math/tex">n</script></span> sommets on va :</p>
+<ul>
+<li>Initialiser les <span class="math"><script type="math/tex">p(i)</script></span> à 0 : aucun sommet n’a encore été traité.</li>
+<li>Initialiser les <span class="math"><script type="math/tex">n(i)</script></span> à <span class="math"><script type="math/tex">d^+(i)</script></span>, le nombre de successeurs de <span class="math"><script type="math/tex">i</script></span>.</li>
+</ul>
+<p>On a donc une complexité de <span class="math"><script type="math/tex">O(n)</script></span> à l’initialisation (en supposant que <span class="math"><script type="math/tex">d^+(i)</script></span> soit connu).</p>
+<h4>La boucle principale</h4>
+<p>On va itérer tant qu’on a pas parcouru tous les successeurs de <span class="math"><script type="math/tex">i</script></span>. Dans le pire des cas, on va faire <span class="math"><script type="math/tex">n</script></span> fermetures de sommets (<span class="math"><script type="math/tex">n_i=0</script></span>), et <span class="math"><script type="math/tex">m</script></span> analyses d’un successeur de <span class="math"><script type="math/tex">i</script></span> (<span class="math"><script type="math/tex">n_i\ne0</script></span>).</p>
+<p>On a donc une complexité de <span class="math"><script type="math/tex">O(n+m)</script></span> dans notre boucle principale.</p>
+<h5>Propriétés</h5>
+<h6>Construction d’une arborescence de <span class="math"><script type="math/tex">i_0</script></span></h6>
+<p>La fonction <span class="math"><script type="math/tex">f</script></span> défini une arborescence <span class="math"><script type="math/tex">\Leftrightarrow</script></span> <span class="math"><script type="math/tex">G^f</script></span> est connexe.
+On peut le prouver par récurrence qu’à chaque itération :</p>
+<ul>
+<li>soit on rajoute un arc à l’arborescence, donc un graphe connexe avec un sommet de plus</li>
+<li>soit on ne change pas le graphe</li>
+</ul>
+<h6>Tout sommet atteint est descendant de <span class="math"><script type="math/tex">i_0</script></span></h6>
+<p>Does someone have a good preuve ?</p>
+<h4>Fin de l’algorithme</h4>
+<p>Prouver la fin de l’algo revient à prouver que la boucle principale se termine. Dans celle ci, pour chaque sommet <span class="math"><script type="math/tex">i</script></span>, on fait <span class="math"><script type="math/tex">d^+(i)</script></span> analyse d’un successeur. On aura donc :
+<span class="math"><script type="math/tex">\sum_{i=1}^{n}d^+(i)=m</script></span> analyses.
+Ainsi, le nombre d’itérations de la boucle principale est majoré par <span class="math"><script type="math/tex">(n+m)</script></span>.</p></body>
+</html>
