@@ -1,5 +1,5 @@
 # RO03-ToRemember
-The .md file had been edited with atom and some packages :
+The .md files had been edited with atom and :
 * [mathjax-wrapper](https://atom.io/packages/mathjax-wrapper)
 * [markdown-preview-plus](https://atom.io/packages/markdown-preview-plus)
 
