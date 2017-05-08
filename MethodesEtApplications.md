@@ -113,6 +113,7 @@ K, sous ensemble de X est dit noyau si :
 
 #### Propriétés
 * Un graphe sans circuit a exactement un noyau.
+* Dans un jeu à deux joueurs jouant l'un après l'autre, si un joueur atteint le noyau du graphe, alors il est dans une position gagnante.
 
 #### Tips
 * Pour trouver un noyau, regarder les sommets qui ont le plus de predecesseurs (pour respecter la deuxième condition).
